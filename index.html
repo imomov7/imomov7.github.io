@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Abdullo Imomov is a Computing and Information Technology student at RIT Dubai and the founder of Acadely.">
-  <meta name="theme-color" content="#101210">
+  <meta name="theme-color" content="#261a15">
   <title>Abdullo Imomov · Portfolio</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23dcfa83'/%3E%3Ctext x='24' y='30' text-anchor='middle' font-family='sans-serif' font-size='18' font-weight='bold' fill='%23101210'%3EAI%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23f4e8d3'/%3E%3Ctext x='24' y='30' text-anchor='middle' font-family='sans-serif' font-size='18' font-weight='bold' fill='%23261a15'%3EAI%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="portfolio.js" defer></script>
 </head>
@@ -18,36 +18,48 @@
   <header class="site-header">
     <div class="shell header-inner">
       <a class="brand" href="#top"><span class="monogram" aria-hidden="true">AI</span><span>Abdullo Imomov</span></a>
-      <nav aria-label="Main navigation">
+      <nav id="site-nav" aria-label="Main navigation">
         <a href="#work">Work</a><a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
-        <span class="theme-icon" aria-hidden="true">☼</span>
-      </button>
+      <div class="header-controls">
+        <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>
+        </button>
+        <button class="theme-toggle icon-button" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+          <svg class="sun-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>
+          <svg class="moon-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.9 13.3A8.5 8.5 0 0 1 10.7 3.1a9 9 0 1 0 10.2 10.2Z"/></svg>
+        </button>
+      </div>
     </div>
   </header>
   <main id="main">
     <section class="hero shell" aria-labelledby="intro-title">
       <div class="hero-copy">
-        <p class="eyebrow location"><span aria-hidden="true"></span> Dubai, United Arab Emirates</p>
-        <h1 id="intro-title">Abdullo<br><span>Imomov<span class="period">.</span></span></h1>
-        <p class="hero-role">Computing student. Founder of Acadely.</p>
-        <p class="hero-description">I study Computing and Information Technology at RIT Dubai and build software for everyday problems.</p>
+        <p class="eyebrow location">Dubai, United Arab Emirates</p>
+        <h1 id="intro-title">Abdullo<br>Imomov</h1>
+        <p class="hero-role">Computing student and founder of Acadely</p>
+        <p class="hero-description">I study Computing and Information Technology at RIT Dubai and build tools for student life.</p>
         <div class="actions"><a class="button primary" href="#work">Explore my work</a><a class="button secondary" href="#about">About me</a></div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="art-grid"></div>
-        <canvas class="orbit"></canvas>
-        <div class="art-cross horizontal"></div><div class="art-cross vertical"></div>
-        <span class="art-coordinate top-left">25.2048° N</span>
-        <span class="art-coordinate bottom-right">55.2708° E</span>
-      </div>
+      <figure class="hero-art" aria-label="Illustration of a semester plan">
+        <div class="folio" aria-hidden="true">
+          <div class="folio-sheet">
+            <div class="folio-header"><span>RIT Dubai</span><span>Sample week</span></div>
+            <div class="folio-title">Semester<br>plan</div>
+            <div class="folio-row"><span>Mon</span><span>Programming assignment</span></div>
+            <div class="folio-row"><span>Wed</span><span>Review calculus notes</span></div>
+            <div class="folio-row"><span>Fri</span><span>Submit research outline</span></div>
+            <div class="folio-footer">Organized with Acadely</div>
+          </div>
+        </div>
+        <figcaption>The kind of week Acadely helps organize</figcaption>
+      </figure>
       <div class="hero-foot"><span>RIT Dubai · Computing &amp; Information Technology</span><span>Expected graduation · May 2030</span></div>
     </section>
 
     <section class="work section shell" id="work" aria-labelledby="work-title">
-      <p class="eyebrow"><span class="accent-line"></span> Projects &amp; entrepreneurship</p>
-      <h2 id="work-title">What I’m building<span class="period">.</span></h2>
+      <p class="eyebrow">Projects &amp; entrepreneurship</p>
+      <h2 id="work-title">Selected projects</h2>
       <article class="project">
         <div class="project-copy">
           <p class="eyebrow project-role">Founder &amp; Developer</p>
@@ -89,7 +101,7 @@
         <div><dt>Keep everything together</dt><dd>Access your student dashboard on mobile, with accounts and cloud synchronization.</dd></div>
       </dl>
       <details class="contribution">
-        <summary>My role at Acadely</summary>
+        <summary>My role at Acadely <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
         <p>I founded Acadely and set the product direction. I plan and develop features, work on the interface and user experience, and identify bugs and coordinate improvements. I also explore cloud infrastructure, authentication, and subscription models, and work on branding, marketing, and opportunities to bring Acadely to more universities.</p>
       </details>
       <div class="more-projects">
@@ -105,7 +117,7 @@
     </section>
 
     <section class="about section shell" id="about" aria-labelledby="about-title">
-      <div><p class="eyebrow"><span class="accent-line"></span> About me</p><h2 id="about-title">From idea<br>to product<span class="period">.</span></h2></div>
+      <div><p class="eyebrow">About me</p><h2 id="about-title">From idea<br>to product</h2></div>
       <div class="about-copy">
         <p>I’m a Computing and Information Technology student at Rochester Institute of Technology Dubai. I’m interested in software development, artificial intelligence, and entrepreneurship.</p>
         <p>Outside class, I work on independent software projects and explore business opportunities in technology. With Acadely, I’m putting what I learn about programming, product development, and business strategy into practice.</p>
@@ -114,8 +126,8 @@
     </section>
 
     <section class="education section shell" id="education" aria-labelledby="education-title">
-      <p class="eyebrow"><span class="accent-line"></span> Education</p>
-      <h2 id="education-title">What I study<span class="period">.</span></h2>
+      <p class="eyebrow">Education</p>
+      <h2 id="education-title">Computing at RIT Dubai</h2>
       <article class="education-card">
         <div class="education-main">
           <div class="school-mark" aria-hidden="true">RIT</div>
@@ -129,8 +141,7 @@
     </section>
 
     <section class="skills section shell" id="skills" aria-labelledby="skills-title">
-      <p class="eyebrow"><span class="accent-line"></span> Skills &amp; interests</p>
-      <h2 id="skills-title">How I work<span class="period">.</span></h2>
+      <h2 id="skills-title">Skills and interests</h2>
       <dl class="skill-grid">
         <div><dt>Development</dt><dd>Python, JavaScript, HTML, CSS, object-oriented programming, responsive web development</dd></div>
         <div><dt>Tools &amp; platforms</dt><dd>VS Code, Git, GitHub, GitLab, Supabase, VirtualBox, UTM, AI tools</dd></div>
@@ -141,7 +152,7 @@
       </dl>
     </section>
     <section class="contact section shell" id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Get in touch<span class="period">.</span></h2>
+      <h2 id="contact-title">Get in touch</h2>
       <div class="actions">
         <a class="button primary" href="mailto:imomovabdullo009@gmail.com">Email me</a>
         <a class="button secondary" href="https://github.com/imomov7">GitHub</a>
