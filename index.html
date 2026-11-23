@@ -25,9 +25,9 @@
         <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" hidden>
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>
         </button>
+        <time class="dubai-time" hidden></time>
         <button class="theme-toggle icon-button" type="button" aria-label="Switch to light theme" title="Switch to light theme">
-          <svg class="sun-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>
-          <svg class="moon-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.9 13.3A8.5 8.5 0 0 1 10.7 3.1a9 9 0 1 0 10.2 10.2Z"/></svg>
+          <span class="cord" aria-hidden="true"><span class="cord-handle"></span></span>
         </button>
       </div>
     </div>
@@ -48,14 +48,44 @@
             fetchpriority="high" alt="Abdullo Imomov adjusting his tie in a black-and-white portrait">
           <div class="portrait-curtain" aria-hidden="true"></div>
         </div>
+        <button type="button" class="button secondary profile-open" aria-haspopup="dialog" hidden>Profile card</button>
       </figure>
+      <dialog class="profile-dialog" aria-labelledby="profile-title">
+        <div class="profile-dialog-head">
+          <p class="eyebrow">Dubai, United Arab Emirates</p>
+          <form method="dialog"><button class="icon-button" aria-label="Close profile card" autofocus><span aria-hidden="true">×</span></button></form>
+        </div>
+        <h2 id="profile-title">Abdullo Imomov</h2>
+        <dl>
+          <div><dt>Building</dt><dd>Acadely</dd></div>
+          <div><dt>Studying</dt><dd>Computing and Information Technology, RIT Dubai</dd></div>
+          <div><dt>Expected graduation</dt><dd>May 2030</dd></div>
+        </dl>
+      </dialog>
       <div class="hero-foot"><span>RIT Dubai · Computing &amp; Information Technology</span><span>Expected graduation · May 2030</span></div>
     </section>
 
     <section class="work section shell" id="work" aria-labelledby="work-title">
       <p class="eyebrow">Projects &amp; entrepreneurship</p>
       <h2 id="work-title">Selected projects</h2>
-      <article class="project">
+      <nav class="project-doors" aria-label="Explore projects">
+        <a class="project-door" href="#acadely" data-door>
+          <span class="door-interior" aria-hidden="true">A</span>
+          <span class="door-leaf" aria-hidden="true"><span></span></span>
+          <span class="door-caption">Acadely <small>Student productivity</small></span>
+        </a>
+        <a class="project-door" href="#homesense" data-door>
+          <span class="door-interior" aria-hidden="true">H</span>
+          <span class="door-leaf" aria-hidden="true"><span></span></span>
+          <span class="door-caption">HomeSense <small>Energy monitoring</small></span>
+        </a>
+        <a class="project-door" href="#founders" data-door>
+          <span class="door-interior" aria-hidden="true">F</span>
+          <span class="door-leaf" aria-hidden="true"><span></span></span>
+          <span class="door-caption">Founder community <small>Early concept</small></span>
+        </a>
+      </nav>
+      <article class="project" id="acadely" tabindex="-1">
         <div class="project-copy">
           <p class="eyebrow project-role">Founder &amp; Developer</p>
           <h3>Acadely</h3>
@@ -100,11 +130,11 @@
         <p>I founded Acadely and set the product direction. I plan and develop features, work on the interface and user experience, and identify bugs and coordinate improvements. I also explore cloud infrastructure, authentication, and subscription models, and work on branding, marketing, and opportunities to bring Acadely to more universities.</p>
       </details>
       <div class="more-projects">
-        <article>
+        <article id="homesense" tabindex="-1">
           <p class="eyebrow">Python project</p><h3>HomeSense</h3>
           <p>Smart-home energy monitoring project that organizes energy consumption data. I develop the Python project structure, organize its functionality, and document how it works.</p>
         </article>
-        <article>
+        <article id="founders" tabindex="-1">
           <p class="eyebrow">Early concept</p><h3>Founder community</h3>
           <p>A platform idea for emerging founders to share their websites and business ideas, get peer feedback, and rate each other’s projects.</p>
         </article>
@@ -117,6 +147,11 @@
         <p>I’m a Computing and Information Technology student at Rochester Institute of Technology Dubai. I’m interested in software development, artificial intelligence, and entrepreneurship.</p>
         <p>Outside class, I work on independent software projects and explore business opportunities in technology. With Acadely, I’m putting what I learn about programming, product development, and business strategy into practice.</p>
         <p>I want to deepen my experience in full-stack development and AI, collaborate with other developers and founders, and eventually lead a technology business that builds useful products for people around the world.</p>
+        <ol class="journey" aria-label="My journey">
+          <li><span>University</span><strong>Computing and IT at RIT Dubai</strong></li>
+          <li><span>Founder</span><strong>Building Acadely for student life</strong></li>
+          <li><time datetime="2030-05">May 2030</time><strong>Expected graduation</strong></li>
+        </ol>
       </div>
     </section>
 
