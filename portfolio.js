@@ -118,3 +118,75 @@ if (!reducedMotion.matches && "IntersectionObserver" in window) {
     entrances.observe(section);
   });
 }
+
+let pullStart;
+themeButton.addEventListener("pointerdown", (event) => {
+  if (event.button !== 0 || !event.isPrimary) return;
+  pullStart = event.clientY;
+  themeButton.setPointerCapture(event.pointerId);
+});
+themeButton.addEventListener("pointermove", (event) => {
+  if (pullStart === undefined || !themeButton.hasPointerCapture(event.pointerId)) return;
+  const distance = Math.min(24, Math.max(0, event.clientY - pullStart));
+  themeButton.style.setProperty("--cord-pull", `${distance}px`);
+});
+themeButton.addEventListener("lostpointercapture", () => {
+  pullStart = undefined;
+  themeButton.style.removeProperty("--cord-pull");
+});
+
+const clock = document.querySelector(".dubai-time");
+const dubaiTime = new Intl.DateTimeFormat("en-AE", {
+  timeZone: "Asia/Dubai",
+  hour: "numeric",
+  minute: "2-digit",
+  hour12: true,
+});
+function renderDubaiTime() {
+  const now = new Date();
+  clock.dateTime = now.toISOString();
+  clock.textContent = `Dubai · ${dubaiTime.format(now)}`;
+}
+renderDubaiTime();
+clock.hidden = false;
+setInterval(renderDubaiTime, 15000);
+
+const profileButton = document.querySelector(".profile-open");
+const profile = document.querySelector(".profile-dialog");
+profileButton.hidden = false;
+profileButton.addEventListener("click", () => profile.showModal());
+profile.addEventListener("click", (event) => {
+  if (event.target !== profile) return;
+  const bounds = profile.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right ||
+      event.clientY < bounds.top || event.clientY > bounds.bottom) {
+    profile.close();
+  }
+});
+
+let passage;
+document.querySelectorAll("[data-door]").forEach((door) => {
+  door.addEventListener("click", (event) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey ||
+        event.shiftKey || event.altKey || reducedMotion.matches) return;
+    event.preventDefault();
+    if (passage) {
+      clearTimeout(passage.timer);
+      passage.door.classList.remove("door-open");
+    }
+    door.classList.add("door-open");
+    const target = document.getElementById(door.hash.slice(1));
+    const timer = setTimeout(() => {
+      if (location.hash !== door.hash) history.pushState(null, "", door.hash);
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ block: "start" });
+      target.animate(
+        [{ opacity: 0.65, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }],
+        { duration: 420, easing: "cubic-bezier(.22, 1, .36, 1)" },
+      );
+      door.classList.remove("door-open");
+      passage = undefined;
+    }, 250);
+    passage = { door, timer };
+  });
+});
