@@ -503,7 +503,7 @@ function setMode(m, animate = true){
     return;
   }
   if (m === 'dark') root.dataset.mode = 'dark'; else delete root.dataset.mode;
-  themeMeta?.setAttribute('content', m === 'dark' ? '#1A1818' : '#EEEAE6');
+  themeMeta?.setAttribute('content', m === 'dark' ? '#172824' : '#FAF7EE');
   $('#cordHit')?.setAttribute('aria-checked', String(m === 'dark'));
   try { localStorage.setItem(MODE_KEY, m); } catch (e) {}
 }
@@ -754,34 +754,34 @@ const toggleMode = () => setMode(getMode() === 'dark' ? 'light' : 'dark');
       c.fillRect(-3.4, -.5, 6.8, 7.5);
       c.restore(); return;
     }
-    // brass ferrule where the cord is crimped
+    // metal ferrule where the cord is crimped
     const fg = c.createLinearGradient(-3.6, 0, 3.6, 0);
-    fg.addColorStop(0, '#5b4a2c'); fg.addColorStop(.3, '#e8d59e'); fg.addColorStop(.55, '#b0924f'); fg.addColorStop(1, '#4a3a1f');
+    fg.addColorStop(0, '#3a5148'); fg.addColorStop(.3, '#d5e2d6'); fg.addColorStop(.55, '#82998a'); fg.addColorStop(1, '#30453d');
     c.fillStyle = fg;
     c.beginPath(); c.roundRect ? c.roundRect(-3.5, -.6, 7, 7.6, 1.2) : c.rect(-3.5, -.6, 7, 7.6); c.fill();
     c.fillStyle = 'rgba(0,0,0,.25)'; c.fillRect(-3.5, 2.6, 7, .7); c.fillRect(-3.5, 4.4, 7, .6);
-    // turned walnut body
+    // turned green handle
     knobPath(c);
     const bg = c.createLinearGradient(-9.6, 0, 9.6, 0);
-    bg.addColorStop(0, '#24150c'); bg.addColorStop(.22, '#6b3f22'); bg.addColorStop(.4, '#a8693d');
-    bg.addColorStop(.58, '#7c4828'); bg.addColorStop(.85, '#3b2213'); bg.addColorStop(1, '#1d110a');
+    bg.addColorStop(0, '#12231c'); bg.addColorStop(.22, '#2c5746'); bg.addColorStop(.4, '#6f9b82');
+    bg.addColorStop(.58, '#446f5b'); bg.addColorStop(.85, '#1d3b2d'); bg.addColorStop(1, '#10241a');
     c.fillStyle = bg; c.fill();
     c.save(); knobPath(c); c.clip();
     // grain
-    c.strokeStyle = 'rgba(30,14,6,.28)'; c.lineWidth = .55;
+    c.strokeStyle = 'rgba(21,44,32,.28)'; c.lineWidth = .55;
     for (let k = -3; k <= 3; k++){
       c.beginPath(); c.moveTo(k * 2.4 - .6, 8); c.bezierCurveTo(k * 2.9 + 1, 16, k * 2.2 - 1, 26, k * 1.6, 35); c.stroke();
     }
     // soft top-left key light + bottom occlusion
     const hl = c.createRadialGradient(-3.6, 17, .5, -3.6, 17, 9);
-    hl.addColorStop(0, 'rgba(255,226,190,.42)'); hl.addColorStop(1, 'rgba(255,226,190,0)');
+    hl.addColorStop(0, 'rgba(231,245,229,.42)'); hl.addColorStop(1, 'rgba(231,245,229,0)');
     c.fillStyle = hl; c.fillRect(-10, 6, 20, 30);
     const bo = c.createLinearGradient(0, 24, 0, 35.5);
     bo.addColorStop(0, 'rgba(0,0,0,0)'); bo.addColorStop(1, 'rgba(0,0,0,.35)');
     c.fillStyle = bo; c.fillRect(-10, 6, 20, 30);
     c.restore();
     // crisp specular streak
-    c.fillStyle = 'rgba(255,240,220,.38)';
+    c.fillStyle = 'rgba(231,245,229,.38)';
     c.beginPath(); c.ellipse(-4.4, 20.5, 1.1, 5.2, -.08, 0, Math.PI * 2); c.fill();
     c.restore();
   }
@@ -807,11 +807,11 @@ const toggleMode = () => setMode(getMode() === 'dark' ? 'light' : 'dark');
     // braided cotton cord: dark edge, body, light side, twist
     c.lineCap = 'round'; c.lineJoin = 'round';
     pathThrough(c, ps);
-    c.strokeStyle = '#6f6455'; c.lineWidth = thick + 1.3; c.stroke();
-    c.strokeStyle = '#d6ccba'; c.lineWidth = thick; c.stroke();
+    c.strokeStyle = '#657c6d'; c.lineWidth = thick + 1.3; c.stroke();
+    c.strokeStyle = '#c3d3c4'; c.lineWidth = thick; c.stroke();
     const sm = samples(ps, thick * 1.05);
     c.lineWidth = Math.max(.6, thick * .24);
-    c.strokeStyle = 'rgba(96,82,64,.55)';
+    c.strokeStyle = 'rgba(71,98,78,.55)';
     c.beginPath();
     for (const q of sm){
       if (q.y < -2) continue;
@@ -1522,9 +1522,9 @@ try {
     sec.dataset.ch = i;                                     // the backdrop light takes this chapter's colour
   };
   // ---- the tunnel ----
-  let W = 0, H = 0, dpr = 1, rgb = '26,24,24';
+  let W = 0, H = 0, dpr = 1, rgb = '23,40,36';
   const size = () => { dpr = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; };
-  const readRgb = () => { rgb = (getComputedStyle(root).getPropertyValue('--fg-rgb') || '26,24,24').trim(); };
+  const readRgb = () => { rgb = (getComputedStyle(root).getPropertyValue('--fg-rgb') || '23,40,36').trim(); };
   new MutationObserver(readRgb).observe(root, { attributes: true, attributeFilter: ['data-mode'] });
   const RINGS = 16, GAP = 340, FOCAL = 520, R = 620, TICKS = 60;
   const dust = Array.from({ length: 70 }, () => ({ a: Math.random() * Math.PI * 2, r: 120 + Math.random() * 760, z: Math.random() * RINGS * GAP, s: .6 + Math.random() * 1.4 }));
