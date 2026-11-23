@@ -8,7 +8,7 @@ function setTheme(theme) {
   const label = light ? "Switch to dark theme" : "Switch to light theme";
   themeButton.setAttribute("aria-label", label);
   themeButton.title = label;
-  themeColor.content = light ? "#f4e8d3" : "#261a15";
+  themeColor.content = light ? "#f5f5f5" : "#111111";
 }
 
 try {
