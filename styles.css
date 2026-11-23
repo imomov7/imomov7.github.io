@@ -1,21 +1,21 @@
 :root {
   color-scheme: dark;
-  --bg: #261a15;
-  --panel: #30211a;
-  --surface: #3a2920;
-  --text: #f4e8d3;
-  --secondary: #dcc7ad;
-  --muted: #bca489;
-  --line: #594032;
-  --accent: #d9a77d;
-  --primary: #f4e8d3;
-  --on-primary: #261a15;
-  --paper: #f2e4cc;
-  --paper-raised: #faf1e1;
-  --paper-muted: #6f513e;
-  --paper-ink: #35241b;
-  --paper-line: #d3bca1;
-  --paper-accent: #8a5139;
+  --bg: #111111;
+  --panel: #191919;
+  --surface: #252525;
+  --text: #f5f5f5;
+  --secondary: #d3d3d3;
+  --muted: #aaaaaa;
+  --line: #454545;
+  --accent: #d0d0d0;
+  --primary: #f5f5f5;
+  --on-primary: #111111;
+  --paper: #ebebeb;
+  --paper-raised: #ffffff;
+  --paper-muted: #555555;
+  --paper-ink: #191919;
+  --paper-line: #c7c7c7;
+  --paper-accent: #343434;
   --sans: "Instrument Sans", system-ui, sans-serif;
   --display: "Newsreader", Georgia, serif;
   --ease: cubic-bezier(.22, 1, .36, 1);
@@ -25,16 +25,16 @@
 }
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg: #f4e8d3;
-  --panel: #f9efde;
-  --surface: #ebdbc1;
-  --text: #35241b;
-  --secondary: #594130;
-  --muted: #6f513e;
-  --line: #c9af92;
-  --accent: #864b31;
-  --primary: #35241b;
-  --on-primary: #f4e8d3;
+  --bg: #f5f5f5;
+  --panel: #ffffff;
+  --surface: #e8e8e8;
+  --text: #191919;
+  --secondary: #414141;
+  --muted: #555555;
+  --line: #bcbcbc;
+  --accent: #404040;
+  --primary: #191919;
+  --on-primary: #f5f5f5;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -75,7 +75,7 @@ h1 { font-size: clamp(4rem, 8.2vw, 8.25rem); line-height: .85; margin: 1.5rem 0 
 .button { display: inline-flex; justify-content: center; align-items: center; min-height: 3rem; border-radius: .5rem; border: 1px solid transparent; padding: .5rem 1rem; font-size: .9375rem; font-weight: 600; text-align: center; }
 .primary { background: var(--primary); color: var(--on-primary); }
 .primary:hover { background: var(--accent); color: var(--on-primary); }
-:root[data-theme="light"] .primary:hover { color: #fff7e9; }
+:root[data-theme="light"] .primary:hover { color: #ffffff; }
 .secondary { border-color: var(--line); background: var(--panel); }
 .secondary:hover { border-color: var(--accent); background: var(--surface); }
 .button:active, .icon-button:active, .preview-tabs button:active { transform: scale(.98); }
@@ -131,7 +131,7 @@ h2 { font-size: clamp(2.75rem, 6.1vw, 5.25rem); margin: .5rem 0 1.75rem; }
 .preview h4 { font-size: 1rem; font-weight: 600; }
 .preview-panels p { margin: .25rem 0 .75rem; color: var(--paper-muted); font-size: .875rem; }
 .sample-list { list-style: none; padding: 0; border-top: 1px solid var(--paper-line); }
-.sample-list li { display: flex; justify-content: space-between; align-items: center; gap: .5rem; min-height: 2.25rem; padding: .25rem .5rem; border-bottom: 1px solid var(--paper-line); border-left: 1px solid #b6806d; font-size: .875rem; }
+.sample-list li { display: flex; justify-content: space-between; align-items: center; gap: .5rem; min-height: 2.25rem; padding: .25rem .5rem; border-bottom: 1px solid var(--paper-line); border-left: 1px solid #858585; font-size: .875rem; }
 .sample-list small { font-size: .8125rem; color: var(--paper-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .feature-grid, .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 1.5rem; margin-top: 1.5rem; }
 .feature-grid > div, .skill-grid > div { padding-block: 1.25rem; border-top: 1px solid var(--line); }
@@ -250,7 +250,7 @@ summary svg, nav a::after, .back-top::after {
 .profile-open { position: absolute; inset: auto .75rem .75rem auto; z-index: 1; }
 .profile-dialog { width: min(30rem, 100% - 2rem); max-height: calc(100% - 2rem); padding: clamp(1.25rem, 5vw, 2.5rem); border: 1px solid var(--line); border-radius: .75rem; background: var(--panel); color: var(--text); }
 .profile-dialog[open] { animation: enter var(--enter) var(--ease) both; }
-.profile-dialog::backdrop { background: #20140ed6; }
+.profile-dialog::backdrop { background: #111111d6; }
 .profile-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
 .profile-dialog h2 { font-size: clamp(2.5rem, 8vw, 4rem); }
 .profile-dialog dl div { padding: .75rem 0; border-top: 1px solid var(--line); }
